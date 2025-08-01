@@ -1,0 +1,87 @@
+name: 🚀 Deploying Ittapako Enterprise APP
+
+permissions:
+  contents: read
+  actions: read
+  issues: write
+
+on:
+  workflow_dispatch: # 🏗️ Manual trigger
+  push:
+    branches:
+      - pipeline-fixes # 🔄 Trigger on push to pipeline-fixes
+  pull_request:
+    branches:
+      - pipeline-fixes # 🔄 Trigger on PR to pipeline-fixes
+
+env:
+  BRANCH_NAME: ${{ github.ref_name }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      VITE_APP_NAME: ${{ secrets.VITE_APP_NAME }}
+      VITE_APP_LONG_NAME: ${{ secrets.VITE_APP_LONG_NAME }}
+      VITE_APP_API_URL: ${{ secrets.VITE_APP_API_URL }}
+
+    steps:
+      - name: 📂🔄 Checkout code
+        uses: actions/checkout@v2
+
+      - name: 🔧 Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: 🧹 Clean previous build
+        run: |
+          if [ -d "./dist" ]; then rm -rf ./dist; fi
+        shell: bash
+
+      - name: 📦 Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: 🧼 Lint the codebase
+        run: yarn lint # Keeping it clean and consistent
+
+      - name: 🏗️ Build the app
+        run: yarn build
+
+      - name: 📝 Log Deployment Target
+        run: echo "🚀 Deploying to Production Server 🟢"
+
+      - name: 🚀 Deploy to FTP server
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: 'ftp'
+          local-dir: ./dist/
+          server-dir: ./ # 🔁 Adjust if needed
+
+      - name: 📣 Notify Slack
+        uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          fields: workflow,job,commit,repo,ref,author,took
+          custom_payload: |
+            {
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                "text": `*${process.env.AS_WORKFLOW}*\n`+
+                        `*Branch*: ${{ github.ref }}[${process.env.AS_COMMIT} of ${process.env.AS_REPO}]\n`+
+                        `Pipeline run by *${process.env.AS_AUTHOR}*\n`+
+                        `${{ job.status == 'failure' && '❌ *Build Failed!*' || '✅ *Build Succeeded!*' }};  *Duration*: ${process.env.AS_TOOK} \n`+
+                        `<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|📂 View log>`
+              }],
+              username: "GitHub Actions",
+              icon_emoji: ":github:"
+            }
+        env:
+          SLACK_WEBHOOK_URL: 'https://hooks.slack.com/services/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'
+        if: always() # ✅ Send Slack notify even on fail/cancel
+

@@ -1,0 +1,16 @@
+query {
+  countries {
+    code
+    name
+    emoji
+  }
+  continents {
+    name
+    code
+  }
+  country(code: "NP") {
+    name
+    code
+    capital
+  }
+}

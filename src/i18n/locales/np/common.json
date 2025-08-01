@@ -1,0 +1,47 @@
+{
+  "appLongName": "इत्तापाको इन्टरप्राइजेस पोर्टल",
+  "appName": "इत्तापाको इन्टरप्राइजेस",
+  "home": "गृहपृष्ठ",
+
+  "login": "लग इन",
+  "logout": "बाहिर निस्कनुहोस्",
+  "options": "विकल्पहरू",
+  "selectLanguage": "भाषा चयन गर्नुहोस्",
+  "language": "भाषा",
+
+  "somethingWentWrong": "केही गलत भयो",
+  "product": "सामान",
+  "category": "श्रेणी",
+  "module": {
+    "name": "नाम",
+    "nameNp": "नाम (नेपालीमा)",
+    "slug": "स्लग",
+    "description": "विवरण",
+    "createdOn": "सिर्जना गरिएको मिति",
+    "lastUpdatedOn": "अन्तिम पटक अपडेट गरिएको मिति",
+    "rs": "रू."
+  },
+  "form": {
+    "action": "कार्य",
+    "submit": "पेश गर्नुहोस्",
+    "cancel": "रद्द गर्नुहोस्",
+    "updating": "अपडेट हुँदैछ",
+    "adding": "थपिँदैछ",
+    "confirm": "पुष्टि गर्नुहोस्",
+    "confirmLong": "के तपाईं {{item}} {{action}} चाहनुहुन्छ?"
+  },
+  "action": {
+    "restore": "पुनर्स्थापना गर्नुहोस्",
+    "delete": "हटाउनुहोस्",
+    "hide": "लुकाउनुहोस्",
+    "edit": "सम्पादन गर्नुहोस्"
+  },
+  "actionName": {
+    "confirm": "<strong className=\"capitalize\">{{action}}</strong> पुष्टि गर्नुहोस्?",
+    "confirmAction": "के तपाईं निश्चित हुनुहुन्छ कि तपाईं <i>{{name}}</i> <strong>{{mode}}</strong> चाहनुहुन्छ?",
+    "restore": "पुनर्स्थापना",
+    "delete": "मेटाउने",
+    "hide": "लुकाउने",
+    "edit": "सम्पादन"
+  }
+}

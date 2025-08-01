@@ -1,0 +1,48 @@
+{
+  "appLongName": "Ittapako Enterprises Portal",
+  "appName": "Ittapako Enterprises",
+  "home": "home",
+
+  "login": "Login",
+  "logout": "Logout",
+  "options": "options",
+  "selectLanguage": "Select Language",
+  "language": "Language",
+
+  "somethingWentWrong": "Something went wrong",
+  "product": "Product",
+  "category": "Category",
+  "module": {
+    "name": "Name",
+    "nameNp": "Name (NP)",
+    "slug": "Slug",
+    "description": "Description",
+    "createdOn": "Created on",
+    "lastUpdatedOn": "Last updated on",
+    "rs.": "Rs."
+  },
+  "form": {
+    "action": "Action",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "adding": "Adding",
+    "updating": "Updating",
+    "confirm": "Confirm",
+    "confirmLong": "Are you sure you want to {{action}} {{item}}?"
+  },
+  "action": {
+    "restore": "Restore",
+    "delete": "Delete",
+    "hide": "Hide",
+    "edit": "Edit"
+  },
+  "actionName": {
+    "confirm": "Confirm <strong className=\"capitalize\">{{action}}</strong>?",
+    "confirmAction": "Are you sure you want to <strong>{{mode}}</strong> <italic>{{name}}</italic>?",
+    "item": "item",
+    "restore": "Restore",
+    "delete": "Delete",
+    "hide": "Hide",
+    "edit": "Edit"
+  }
+}
