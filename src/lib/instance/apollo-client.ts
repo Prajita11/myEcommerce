@@ -1,7 +1,8 @@
 // src/apollo-client.ts
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloLink } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
-import createUploadLink from 'apollo-upload-client/createUploadLink.mjs'
+import createUploadLink from 'apollo-upload-client/createUploadLink.mjs';
+
 
 const fileLink = createUploadLink({
   uri: import.meta.env.VITE_APP_GRAPHQL_URL,
