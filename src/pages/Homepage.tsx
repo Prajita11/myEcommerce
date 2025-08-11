@@ -1,7 +1,8 @@
-import React from 'react'
+import { FC, useState } from 'react'
 import { Card } from 'antd'
 import { products } from '@/data/Product'
-const HomePage: React.FC = () => {
+
+const HomePage: FC = () => {
   const [showMessage, setShowMessage] = useState(false)
 
   const handleAddToCart = () => {

@@ -1,23 +1,21 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '@/context/AuthContext'
 
-interface LoginFormProps {
-  setIsLoggedIn: (value: boolean) => void
-}
-
-const LoginForm: React.FC<LoginFormProps> = ({ setIsLoggedIn }) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+const LoginForm = () => {
+  const [email, setEmail] = useState('login@gmail.com')
+  const [password, setPassword] = useState('12345')
   const [message, setMessage] = useState('')
   const navigate = useNavigate()
+  const auth = useAuth()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
     if (email === 'login@gmail.com' && password === '12345') {
       setMessage('Login successful ✅')
-      setIsLoggedIn(true)
       navigate('/home')
+      auth?.setIsLoggedIn(true)
     } else {
       setMessage('❌ Invalid email or password.')
     }
