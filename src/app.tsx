@@ -5,6 +5,11 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import LoginPage from './pages/LoginPage'
 
+import { RouterProvider } from 'react-router-dom'
+import { ApolloProvider } from '@apollo/client'
+import client from './lib/instance/apollo-client'
+import router from './router/routers'
+
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
