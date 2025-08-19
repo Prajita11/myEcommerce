@@ -1,14 +1,13 @@
 import { Suspense } from 'react'
 import { RouteObject } from 'react-router-dom'
-import { Loader } from '@/components/Common/Loader'
 import Homepage from '@/pages/Homepage'
-import UserPage from '@/pages/UserPage'
+import { Spin } from 'antd'
 
 export const routes: RouteObject[] = [
   {
     path: '/',
     element: (
-      <Suspense fallback={<Loader show={true} message="Loading Homepage" />}>
+      <Suspense fallback={<Spin tip="Loading" size="large"/>}>
         <Homepage />
       </Suspense>
     ),
