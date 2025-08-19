@@ -13,14 +13,14 @@ export const routes: RouteObject[] = [
       </Suspense>
     ),
   },
-  {
-    path: '/user',
-    element: (
-      <Suspense fallback={<Loader show={true} message="Loading User Page" />}>
-        <UserPage />
-      </Suspense>
-    ),
-  },
+  // {
+  //   path: '/user',
+  //   element: (
+  //     <Suspense fallback={<Loader show={true} message="Loading User Page" />}>
+  //       <UserPage />
+  //     </Suspense>
+  //   ),
+  // },
 ]
 
 export default routes

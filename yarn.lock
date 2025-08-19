@@ -89,9 +89,13 @@
 
 "@apollo/client@^3.10.8":
 <<<<<<< HEAD
+<<<<<<< HEAD
 "@apollo/client@^3.10.8":
 =======
 >>>>>>> 2ee677fb6c61056688e991ec94e419358fec66b4
+=======
+"@apollo/client@^3.10.8":
+>>>>>>> 78a155bbcd906c7fd83262214089c56b4cc6203f
   version "3.13.5"
   resolved "https://registry.npmjs.org/@apollo/client/-/client-3.13.5.tgz"
   integrity sha512-ceHa1lApLAiGmUur4V+G/CrjwVwHYujfB7U5HM++poCgHpfGn6eet8YGM93fgeWjYX85SaqwdZbQk18IVwhRHg==

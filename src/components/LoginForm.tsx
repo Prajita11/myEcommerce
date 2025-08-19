@@ -22,7 +22,7 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="flex items-center justify-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 p-4">
+    <div className="flex items-center justify-center bg-gradient-to-r from-blue-300 via-blue-400 to-purple-300 p-4">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-md transform rounded-xl bg-white/90 p-8 shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-105"
@@ -32,7 +32,7 @@ const LoginForm = () => {
         {message && (
           <div
             className={`mb-4 rounded px-4 py-2 text-center text-sm font-semibold ${
-              message.includes('✅') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'
+              message.includes('✅') ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-600'
             }`}
           >
             {message}
@@ -45,7 +45,7 @@ const LoginForm = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 px-4 py-2 text-gray-700 focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-300"
+            className="w-full rounded-lg border border-gray-300 px-4 py-2 text-gray-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-300"
             placeholder="login@gmail.com"
             required
           />
@@ -57,7 +57,7 @@ const LoginForm = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 px-4 py-2 text-gray-700 focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-300"
+            className="w-full rounded-lg border border-gray-300 px-4 py-2 text-gray-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-300"
             placeholder="********"
             required
           />
@@ -65,14 +65,14 @@ const LoginForm = () => {
 
         <button
           type="submit"
-          className="w-full rounded-lg bg-gradient-to-r from-pink-500 to-red-500 px-4 py-2 font-bold text-white shadow-md hover:from-pink-600 hover:to-red-600 focus:outline-none focus:ring-2 focus:ring-pink-400"
+          className="w-full rounded-lg bg-gradient-to-r from-blue-500 to-blue-500 px-4 py-2 font-bold text-white shadow-md hover:from-blue-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-400"
         >
           Login
         </button>
 
         <p className="mt-4 text-center text-sm text-gray-600">
           Don’t have an account?{' '}
-          <span className="cursor-pointer font-medium text-pink-600 hover:underline">Register</span>
+          <span className="cursor-pointer font-medium text-purple-500 hover:underline">Register</span>
         </p>
       </form>
     </div>
