@@ -1,13 +1,32 @@
-import { RouterProvider } from 'react-router-dom'
-import { ApolloProvider } from '@apollo/client'
-import client from './lib/instance/apollo-client'
-import router from './router/routers'
+import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
+import AppRoutes from './router/routers/AppRoutes'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import LoginPage from './pages/LoginPage'
+import { AuthProvider, useAuth } from './context/AuthContext'
 
-export const App = () => {
+const App: React.FC = () => {
+  const auth = useAuth()
+
   return (
-    <ApolloProvider client={client}>
-      <RouterProvider router={router} />
-    </ApolloProvider>
+    <AuthProvider>
+      <Router>
+        <div className="flex min-h-screen flex-col">
+          {!auth?.isLoggedIn ? (
+            <>
+              <Navbar />
+              <main className="flex-grow">
+                <AppRoutes />
+              </main>
+              <Footer />
+            </>
+          ) : (
+            <LoginPage />
+          )}
+        </div>
+      </Router>
+    </AuthProvider>
   )
 }
 
