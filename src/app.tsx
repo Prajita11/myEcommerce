@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import AppRoutes from './router/routers/AppRoutes'
@@ -9,6 +10,14 @@ import { AuthProvider, useAuth } from './context/AuthContext'
 const App: React.FC = () => {
   const auth = useAuth()
 
+=======
+import { RouterProvider } from 'react-router-dom'
+import { ApolloProvider } from '@apollo/client'
+import client from './lib/instance/apollo-client'
+import router from './router/routers'
+
+export const App = () => {
+>>>>>>> 2ee677fb6c61056688e991ec94e419358fec66b4
   return (
     <AuthProvider>
       <Router>
